@@ -94,6 +94,8 @@ input{
     border-radius: 1rem;
     height: 7rem;
     text-align: start;
+    
+
     padding: 0.8rem 0rem 0rem 2rem;
 }
 
@@ -146,7 +148,6 @@ input{
     align-items: right;
     justify-content: center;
     
-    
 
     font-size: 11rem;
     font-weight: 1000;
@@ -155,17 +156,27 @@ input{
 
 .resultado {
     align-items: center;
-    height: 10rem;
-    margin-bottom: 1.5rem;
+    justify-items: center;
+    height: 9rem;
+    margin-bottom: 3rem;
 }
 
 .resultado :first-child{
+    height: 9rem;
     letter-spacing: 1rem;
     color: var(--Purple);
+    text-align: end;
+
 }
 
-
-.resultado :last-child{
-    margin-top: 1.3rem;
+.resultado p {
     
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    height: 100%; /* Ajusta la altura según tus necesidades */
+
 }
+
+
+
