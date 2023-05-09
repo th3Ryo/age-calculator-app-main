@@ -76,7 +76,7 @@ main {
     height: 11rem;
 }
 
-.ingresoFecha p:nth-child(1){
+.ingresoFecha label:nth-child(1){
     text-justify: center;
     text-align: start;
     font-size: 1.5rem;
@@ -89,7 +89,8 @@ main {
 
 input{
     font-size: var(--FsInputs);
-    color: var(--Light_grey);
+    /* color: var(--Light_grey); */
+    font-weight: 800;
     border-radius: 1rem;
     height: 7rem;
     text-align: start;
@@ -112,7 +113,7 @@ input{
     flex-flow: row;
     justify-content: space-between;
     
-    height: 20vh;
+    height: 9.8rem;
     width: 72.5rem;
 }
 
@@ -123,7 +124,9 @@ input{
     border-color: var(--Smokey_grey);
 }
 
+
 .svgContainer {
+    overflow: visible;
     display: grid;
     place-items: center;
     background-color: var(--Purple);
@@ -153,7 +156,7 @@ input{
 .resultado {
     align-items: center;
     height: 10rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .resultado :first-child{
@@ -163,6 +166,6 @@ input{
 
 
 .resultado :last-child{
-    margin-top: -1rem;
+    margin-top: 1.3rem;
     
 }
