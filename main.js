@@ -1,6 +1,9 @@
 const inputDia = document.querySelector("#ingresoDia")
 const inputMes = document.querySelector("#ingresoMes")
 const inputYear = document.querySelector("#ingresoYear")
+const divIngresoDia = document.querySelector('.ingresoFecha.dia');
+const divIngresoMes = document.querySelector('.ingresoFecha.mes');
+const divIngresoYear = document.querySelector('.ingresoFecha.year');
 
  
 let resultado = {
@@ -16,14 +19,45 @@ let resultado = {
  * */
 function ingresoValorDia () {
         const ingresoDia = parseInt(inputDia.value);
+        const pElement = document.querySelector('.ingresoFecha.dia p');
+
         if (!isNaN(ingresoDia) && ingresoDia>0 && ingresoDia < 32) {
             
                 //resta de dia actual - dia nacimiento 
                 resultado.dia = fechaHoy.dia - ingresoDia;
+
+                //eliminar clase
+                divIngresoDia.classList.remove('alerta')
+                inputDia.classList.remove('alertaBorde')
+                
+
+                //agregar clase
+                pElement.classList.add('oculto')
             }
         else {
                 console.log = ("no valido")
+                 /** 
+                * !agregar las alertas 
+                * */
+                
+                if (divIngresoDia) {
+                    //verificacion elemento p existe
+
+                    if (!pElement) {
+                        const pAlertaDia = document.createElement('p');
+                        pAlertaDia.innerText = "this fields is required"
+                        divIngresoDia.appendChild(pAlertaDia);
+                    }
+                }
+                //agregar clase
+
+                divIngresoDia.classList.add('alerta')
+                inputDia.classList.add('alertaBorde')
+                //eliminar clase
+
+                pElement.classList.remove('oculto')
             }
+            
         ajuste()
         
 }
@@ -41,14 +75,38 @@ if (inputDia) {
  * !procedimiento mes  
  * */
 
-const ingresoMes =0;
+
 function ingresoValorMes () {
     const ingresoMes = parseInt(inputMes.value);
+    const pElement = document.querySelector('.ingresoFecha.mes p');
     if (!isNaN(ingresoMes) && ingresoMes > 0 && ingresoMes < 13 ) {
         //resta de mes actual - mes nacimiento 
         resultado.mes = fechaHoy.mes - ingresoMes;
+        //eliminar clase
+        divIngresoMes.classList.remove('alerta')
+        inputMes.classList.remove('alertaBorde')
+        
+
+        //agregar clase
+        pElement.classList.add('oculto')
     } else {
         console.log = ("no valido")
+        if (divIngresoMes) {
+            //verificacion elemento p existe
+
+            if (!pElement) {
+                const pAlertaMes = document.createElement('p');
+                pAlertaMes.innerText = "this fields is required"
+                divIngresoMes.appendChild(pAlertaMes);
+            }
+        }
+        //agregar clase
+
+        divIngresoMes.classList.add('alerta')
+        inputMes.classList.add('alertaBorde')
+        //eliminar clase
+
+        pElement.classList.remove('oculto')
     }
     ajuste()
 }
@@ -66,12 +124,38 @@ if (inputMes) {
  * */
 function ingresoValorYear () {
     const ingresoYear = parseInt(inputYear.value);
+    const pElement = document.querySelector('.ingresoFecha.year p');
     //el segundo && corresponde a verificar que el año de ingreso sea menor que la fecha ingresada
     if (!isNaN(ingresoYear)&& fechaHoy.year>ingresoYear) {
         //resta de año actual - año nacimiento 
         resultado.year = fechaHoy.year - ingresoYear;
+        //eliminar clase
+        divIngresoYear.classList.remove('alerta')
+        inputMes.classList.remove('alertaBorde')
+        
+
+        //agregar clase
+        pElement.classList.add('oculto')
+
     } else {
         console.log = ("no valido")
+        if (divIngresoYear) {
+            //verificacion elemento p existe
+
+            if (!pElement) {
+                const pAlertaYear= document.createElement('p');
+                pAlertaYear.innerText = "this fields is required"
+                divIngresoYear.appendChild(pAlertaYear);
+            }
+        }
+        //agregar clase
+
+        divIngresoYear.classList.add('alerta')
+        inputMes.classList.add('alertaBorde')
+        //eliminar clase
+
+        pElement.classList.remove('oculto')
+
     }
     ajuste()
 }
@@ -113,7 +197,9 @@ formatoFechaHoy(fechaHoy)
 function ajuste() {
     let tamañoFecha = Object.keys(resultado).length;
     if (tamañoFecha == 3) {
-        
+        /** 
+        * !organizar fechas 
+        * */
         // verificar queconsole.log("tiene 3");
         // en caso que los dias sean negativos
         if (resultado.dia < 0) {
@@ -127,10 +213,12 @@ function ajuste() {
         }
         // en caso que los dias sean negativos
         if (resultado.year < 0) {
-        console.log("no es hace nada");
+        console.log("no hace nada");
         }
-
-        //cambiar textos de resultados
+        /** 
+        * !cambiar textos de resultados 
+        * */
+        
         const pValorDia = document.querySelector('.diaResultado p');
         if (pValorDia) {
         pValorDia.innerText  = resultado.dia ;
@@ -143,7 +231,7 @@ function ajuste() {
         if (pValoryear) {
         pValoryear.innerText  = resultado.year ;
         }
-
+        
     } 
   }
   /** 

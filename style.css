@@ -99,6 +99,14 @@ input{
     padding: 0.8rem 0rem 0rem 2rem;
 }
 
+.alerta {
+    color:var(--Light_red)
+}
+
+.alertaBorde {
+    border-color: var(--Light_red);
+}
+
 .resultadoFecha {
     
         display: flex;
@@ -179,4 +187,5 @@ input{
 }
 
 
+.oculto {display: none;}
 
