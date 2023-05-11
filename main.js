@@ -11,6 +11,44 @@ let resultado = {
     mes : 1,
     year : 1992, */
 };
+/** 
+ * !escuchar si hay elementos vacios 
+ * */
+function vacio () {
+    if (divIngresoDia.value==undefined) {
+
+    if (inputDia.value === '' && inputMes.value === '' && inputYear.value === '') {
+        const pElement = document.querySelector('.ingresoFecha.dia p');
+        if (!pElement) {
+            const pAlertaDia = document.createElement('p');
+            pAlertaDia.innerText = "this fields is required"
+            divIngresoDia.appendChild(pAlertaDia);
+            
+            // agregar lo rojo
+            divIngresoDia.classList.add('alerta')
+            inputDia.classList.add('alertaBorde')
+            divIngresoMes.classList.add('alerta')
+            inputMes.classList.add('alertaBorde')
+            divIngresoYear.classList.add('alerta')
+            inputYear.classList.add('alertaBorde')
+
+        }
+
+
+        /* const pElement = document.createElement('p');
+        pElement.textContent = '"this fields is required"';
+        
+        const diaContainer = document.querySelector('.ingresoFecha.dia');
+        diaContainer.appendChild(pElement); */
+    }
+    }
+}
+/**  
+ * !la unica funcion del blur es actual despues del clikc en otra parte */
+inputDia.addEventListener('blur', vacio)
+inputMes.addEventListener('blur', vacio)
+inputYear.addEventListener('blur', vacio)
+
 
 
 
@@ -31,8 +69,10 @@ function ingresoValorDia () {
                 inputDia.classList.remove('alertaBorde')
                 
 
-                //agregar clase
+                //agregar clase solo si existe
+                if (pElement) {
                 pElement.classList.add('oculto')
+                }
             }
         else {
                 console.log = ("no valido")
@@ -45,7 +85,7 @@ function ingresoValorDia () {
 
                     if (!pElement) {
                         const pAlertaDia = document.createElement('p');
-                        pAlertaDia.innerText = "this fields is required"
+                        pAlertaDia.innerText = "Must be a valid day"
                         divIngresoDia.appendChild(pAlertaDia);
                     }
                 }
@@ -66,7 +106,10 @@ function ingresoValorDia () {
 if (inputDia) {
     inputDia.addEventListener('change', ingresoValorDia) //leer el valor actualizado
 }
-
+if (inputDia.value==='') {
+    console.log("entro esta monda")
+    /* inputDia.addEventListener('change', ingresoValorDia) //leer el valor actualizado */
+}
 
 
 /** 
@@ -88,8 +131,10 @@ function ingresoValorMes () {
         inputMes.classList.remove('alertaBorde')
         
 
-        //agregar clase
+        //agregar clase solo si existe
+        if(pElement) {
         pElement.classList.add('oculto')
+        }
     } else {
         console.log = ("no valido")
         if (divIngresoMes) {
@@ -97,7 +142,7 @@ function ingresoValorMes () {
 
             if (!pElement) {
                 const pAlertaMes = document.createElement('p');
-                pAlertaMes.innerText = "this fields is required"
+                pAlertaMes.innerText = "Must be a valid month"
                 divIngresoMes.appendChild(pAlertaMes);
             }
         }
@@ -117,6 +162,7 @@ function ingresoValorMes () {
 if (inputMes) {
     inputMes.addEventListener('change', ingresoValorMes)
 }
+
 /** 
  * !fin mes
  * */
@@ -133,11 +179,13 @@ function ingresoValorYear () {
         resultado.year = fechaHoy.year - ingresoYear;
         //eliminar clase
         divIngresoYear.classList.remove('alerta')
-        inputMes.classList.remove('alertaBorde')
+        inputYear.classList.remove('alertaBorde')
         
 
-        //agregar clase
+        //agregar clase solo si existe
+        if(pElement) {
         pElement.classList.add('oculto')
+        }
 
     } else {
         console.log = ("no valido")
@@ -146,14 +194,14 @@ function ingresoValorYear () {
 
             if (!pElement) {
                 const pAlertaYear= document.createElement('p');
-                pAlertaYear.innerText = "this fields is required"
+                pAlertaYear.innerText = "Must be in the past"
                 divIngresoYear.appendChild(pAlertaYear);
             }
         }
         //agregar clase
 
         divIngresoYear.classList.add('alerta')
-        inputMes.classList.add('alertaBorde')
+        inputYear.classList.add('alertaBorde')
         //eliminar clase solo si existe
         if (pElement) {
         pElement.classList.remove('oculto')
@@ -166,6 +214,8 @@ function ingresoValorYear () {
 if (inputMes) {
     inputYear.addEventListener('change', ingresoValorYear)
 }
+
+
 /** 
  * !fin mes
  * */
