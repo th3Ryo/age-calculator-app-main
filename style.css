@@ -189,3 +189,16 @@ input{
 
 .oculto {display: none;}
 
+@media ( max-width: 376px ) {
+    main {
+        
+    
+        max-width: 85rem;
+        height: 65rem;
+    
+        padding: 0rem 6rem 3rem 6rem;
+        border-radius: 4rem 4rem 22rem 4rem;
+        border: solid;
+    }
+}
+

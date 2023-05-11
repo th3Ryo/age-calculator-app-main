@@ -53,9 +53,10 @@ function ingresoValorDia () {
 
                 divIngresoDia.classList.add('alerta')
                 inputDia.classList.add('alertaBorde')
-                //eliminar clase
-
+                //eliminar clase solo si existe
+                if (pElement) {
                 pElement.classList.remove('oculto')
+                }
             }
             
         ajuste()
@@ -104,9 +105,10 @@ function ingresoValorMes () {
 
         divIngresoMes.classList.add('alerta')
         inputMes.classList.add('alertaBorde')
-        //eliminar clase
-
+       //eliminar clase solo si existe
+       if (pElement) {
         pElement.classList.remove('oculto')
+       }
     }
     ajuste()
 }
@@ -152,10 +154,10 @@ function ingresoValorYear () {
 
         divIngresoYear.classList.add('alerta')
         inputMes.classList.add('alertaBorde')
-        //eliminar clase
-
+        //eliminar clase solo si existe
+        if (pElement) {
         pElement.classList.remove('oculto')
-
+        }
     }
     ajuste()
 }
