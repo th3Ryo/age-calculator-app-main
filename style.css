@@ -98,7 +98,9 @@ input{
 
     padding: 0.8rem 0rem 0rem 2rem;
 }
-
+input:hover {
+    cursor: pointer;
+  }
 .alerta {
     color:var(--Light_red)
 }
@@ -143,6 +145,10 @@ input{
     border-radius: 50%;
     width: 9.8rem; 
     height: 9.8rem; /* Cambiar el tamaño de la altura según lo necesites */
+  }
+  
+  .svgContainer:hover {
+    background-color: black;
   }
   
  /*  .icon path {
